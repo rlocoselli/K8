@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tictactoe-deploy
+  labels:
+    app: tictactoe
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: tictactoe
+  template:
+    metadata:
+      labels:
+        app: tictactoe
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: web-ctr
+        image: docker.io/locoselli/beyondimages:tictactoe
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+      imagePullSecrets:
+      - name: regcred
