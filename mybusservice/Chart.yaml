@@ -1,0 +1,9 @@
+apiVersion: v2
+name: mybusservice
+description: A Helm chart for deploying MyBusService
+type: application
+version: 0.1.1
+appVersion: "1.16.0"
+maintainers:
+  - name: Rodrigo Locoselli
+    email: rlocoselli@yahoo.com.br

@@ -1,0 +1,9 @@
+apiVersion: v2
+name: tictactoe
+description: A Helm chart for deploying TicTacToe
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+maintainers:
+  - name: Rodrigo Locoselli
+    email: locoselli2016@gmail.com

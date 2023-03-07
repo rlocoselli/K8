@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: {{ .Chart.Name }}
+        image: docker.io/locoselli/meubusaoservice:latest
+        env:
+        - name: MOT
+          value: @mot_pass
+        - name: USER
+          value: "postgres"
+        - name: USERNAME
+          value: @user
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+      imagePullSecrets:
+      - name: regcred

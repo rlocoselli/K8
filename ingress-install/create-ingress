@@ -1,0 +1,1 @@
+kubectl create ingress mybusservice-service --rule=api.mybusservice.eu/*=mybusservice-service:80,tls=api.mybusservice.eu
